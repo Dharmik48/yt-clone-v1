@@ -1,0 +1,5 @@
+@media (max-width: 767px) {
+  .ui.medium.image {
+    margin: 0 !important;
+  }
+}

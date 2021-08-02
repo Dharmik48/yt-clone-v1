@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/VideoList.css'
 
 const VideoList = ({ videos, choseVideo, getComments }) => {
   const renderedVideos = videos.map((video) => {
