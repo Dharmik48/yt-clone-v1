@@ -10,12 +10,13 @@ const App = () => {
   const [selectedVideo, setSelectedVideo] = useState({})
   const [comments, setComments] = useState([])
 
-  const searchForVideos = async (term) => {
+  const searchForVideos = async (term, sortBy) => {
     const videosData = await youtube.get('/search', {
       params: {
         q: term,
         maxResults: 15,
         type: 'video',
+        order: sortBy,
       },
     })
     setVideos(videosData.data.items)
