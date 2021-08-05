@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-const SearchBar = ({ search }) => {
+const SearchBar = ({ search, sorted }) => {
   const [searchTerm, setSearchTerm] = useState('')
 
   const onFormSubmit = (e) => {
     e.preventDefault()
 
-    search(searchTerm)
+    search(searchTerm, sorted)
   }
 
   return (
@@ -25,6 +25,19 @@ const SearchBar = ({ search }) => {
           </button>
         </div>
       </div>
+
+      <select
+        className="ui dropdown"
+        onChange={(e) => search(searchTerm, e.target.value)}
+      >
+        <option value="relevance" defaultValue>
+          Relevance
+        </option>
+        <option value="date">Upload Date</option>
+        <option value="viewCount">View Count</option>
+        <option value="rating">Rating</option>
+        <option value="title">By Title</option>
+      </select>
     </form>
   )
 }
